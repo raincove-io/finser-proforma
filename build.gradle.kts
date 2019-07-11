@@ -22,7 +22,9 @@ dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    compile("io.github.erfangc:raincove-sdk:0.2.1")
+    compile("io.github.erfangc:raincove-sdk:0.3.1")
+
+    compile("ch.qos.logback:logback-classic:1.2.3")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
