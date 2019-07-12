@@ -8,7 +8,8 @@ import io.github.erfangc.raincove.sdk.apis.RaincoveSdk
 import io.github.erfangc.raincove.sdk.models.FinancialStatement
 import org.slf4j.LoggerFactory
 
-val logger = LoggerFactory.getLogger("App")
+private val logger = LoggerFactory.getLogger("App")
+private val objectWriter = ObjectMapper().writerWithDefaultPrettyPrinter()
 
 fun main() {
     val finser = RaincoveSdk.finser()
@@ -29,9 +30,8 @@ private fun runDCF(financialStatements: MutableList<FinancialStatement>) {
                             historicalFinancialStatements = financialStatements
                     )
             )
-    projectionOutput
     val projectedStatements = projectionOutput.projections.map { it.financialStatement }
-    logger.info(ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(projectedStatements))
+    logger.info(objectWriter.writeValueAsString(projectedStatements))
     //
     // compute a WACC
     //
